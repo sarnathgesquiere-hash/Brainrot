@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chud to Skibidi — Individual Commentary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16151f;
+    --ink-soft:#2a2836;
+    --paper:#f6f2e8;
+    --paper-dim:#ece5d4;
+    --lime:#c6ff3d;
+    --coral:#ff6f91;
+    --sky:#7fd6ff;
+    --muted:#8b889c;
+    --line: rgba(22,21,31,0.14);
+    --maxw: 740px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:"Space Grotesk", sans-serif;
+    letter-spacing:-0.01em;
+  }
+  a{color:var(--ink); text-decoration-color: var(--coral); text-decoration-thickness:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: radial-gradient(120% 140% at 18% 0%, #23213a 0%, var(--ink) 55%, #100f18 100%);
+    color: var(--paper);
+    padding: 88px 24px 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width: var(--maxw);
+    margin:0 auto;
+    position:relative;
+    z-index:2;
+  }
+  .kicker{
+    font-family:"Space Grotesk", sans-serif;
+    font-size:14px;
+    color: var(--lime);
+    margin:0 0 18px;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.04;
+    margin:0 0 22px;
+    font-weight:700;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--coral);
+  }
+  .hero p.lede{
+    font-family:"Source Serif 4", serif;
+    font-size:1.15rem;
+    color:#d9d5e4;
+    max-width:56ch;
+    margin:0 0 34px;
+  }
+  .stickers{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:10px;
+  }
+  .sticker{
+    font-family:"Permanent Marker", cursive;
+    font-size:15px;
+    padding:9px 16px 7px;
+    border-radius: 3px;
+    display:inline-block;
+    box-shadow: 3px 4px 0 rgba(0,0,0,0.35);
+  }
+  .sticker.s1{ background:var(--lime); color:#14210a; transform:rotate(-4deg);}
+  .sticker.s2{ background:var(--coral); color:#3a0716; transform:rotate(3deg);}
+  .sticker.s3{ background:var(--sky); color:#062633; transform:rotate(-2deg);}
+  .sticker.s4{ background:var(--paper); color:var(--ink); transform:rotate(2deg);}
+  .sticker.s5{ background:#ffd23f; color:#3a2b00; transform:rotate(-3deg);}
+  .sticker.s6{ background:#c39bff; color:#28063a; transform:rotate(4deg);}
+
+  .meta-row{
+    max-width: var(--maxw);
+    margin: 30px auto 0;
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    font-family:"Space Grotesk", sans-serif;
+    font-size:13px;
+    color:#a49fb5;
+    border-top:1px solid rgba(255,255,255,0.14);
+    padding-top:18px;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  main{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+  section{
+    padding-top: 56px;
+  }
+  .section-label{
+    font-family:"Space Grotesk", sans-serif;
+    font-size:13px;
+    color: var(--muted);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .section-label .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--coral);
+    flex-shrink:0;
+  }
+  h2.title{
+    font-size: clamp(1.5rem, 3.4vw, 2rem);
+    margin: 0 0 22px;
+    font-weight:600;
+  }
+  p{ margin: 0 0 18px; }
+
+  blockquote{
+    margin: 26px 0;
+    padding: 4px 0 4px 22px;
+    border-left: 3px solid var(--coral);
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .callout{
+    background: var(--paper-dim);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding: 20px 22px;
+    margin: 26px 0;
+    font-family:"Space Grotesk", sans-serif;
+    font-size:15px;
+    color: var(--ink-soft);
+  }
+  .callout strong{ color:var(--ink); }
+
+  /* chat bubble illustration */
+  .chatcard{
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 22px 20px 18px;
+    margin: 30px 0;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+  }
+  .chatcard .bar{
+    display:flex; gap:6px; margin-bottom:14px;
+  }
+  .chatcard .bar span{width:8px;height:8px;border-radius:50%;background:#4a4860;}
+  .bubble{
+    max-width: 78%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-family:"Space Grotesk", sans-serif;
+    font-size: 14.5px;
+    margin-bottom:9px;
+    line-height:1.4;
+  }
+  .bubble.left{
+    background:#2c2a41;
+    color:#e7e4f2;
+    border-bottom-left-radius:4px;
+  }
+  .bubble.right{
+    background: var(--lime);
+    color:#14210a;
+    margin-left:auto;
+    border-bottom-right-radius:4px;
+  }
+  .caption{
+    font-family:"Space Grotesk", sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    text-align:center;
+    margin-top:10px;
+  }
+
+  /* glossary grid */
+  .glossary{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:14px;
+    margin: 28px 0 8px;
+  }
+  .term{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:14px 16px;
+    background:#fffdf7;
+  }
+  .term .word{
+    font-family:"Permanent Marker", cursive;
+    font-size:20px;
+    color: var(--ink);
+  }
+  .term .def{
+    font-family:"Space Grotesk", sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+
+  .authorline{
+    font-family:"Space Grotesk", sans-serif;
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+
+  h3.sub{
+    font-family:"Space Grotesk", sans-serif;
+    font-size:1.05rem;
+    font-weight:600;
+    margin: 30px 0 10px;
+    padding-top:6px;
+    border-top:1px solid var(--line);
+  }
+
+  figure{ margin: 30px 0; }
+  figure img{
+    width:100%;
+    border-radius:10px;
+    display:block;
+  }
+  figcaption{
+    font-family:"Space Grotesk", sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+
+  footer{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 40px 24px 70px;
+    font-family:"Space Grotesk", sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width: 560px){
+    .glossary{ grid-template-columns: 1fr; }
+    body{ font-size:17px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">Individual commentary — digital exploration</p>
+    <h1>Chud to <em>Skibidi</em><br>How algorithmic diction talks through us</h1>
+    <p class="lede">On brainrot, meme theory, and the strange migration of internet slang from the feed into everyday speech.</p>
+    <div class="stickers">
+      <span class="sticker s1">skibidi</span>
+      <span class="sticker s2">sigma</span>
+      <span class="sticker s3">mogging</span>
+      <span class="sticker s4">chud</span>
+      <span class="sticker s5">aurafarming</span>
+      <span class="sticker s6">larping</span>
+    </div>
+  </div>
+  <div class="meta-row">
+    <span>700–1000 words</span>
+    <span>Reviewed article: Popular Communication, 2026</span>
+    <span>Group topic: Brainrot &amp; algorithmic diction</span>
+  </div>
+</header>
+
+<main>
+
+  <section id="topic">
+    <p class="section-label"><span class="dot"></span>01 — the topic</p>
+    <h2 class="title">Topic</h2>
+    <p>Chud, Skibidi, Aurafarming, mogging, larping, sigma — some among many neologisms being coined through the web 2.0. Many of these terms have come to be associated with the term “Brainrot.” Brainrot can be defined as “the supposed deterioration of a person's mental or intellectual state, especially viewed as the result of overconsumption of material (now particularly online content) considered to be trivial or unchallenging. Also: something characterized as likely to lead to such deterioration” (Oxford).</p>
+    <p>Historically originating from Henry David Thoreau's book <em>Walden</em> in 1854, describing society's tendency to devalue complex ideas, he criticised it as indicative of general decline in mental and intellectual effort. It has however also come to refer to a whole register of algorithmically circulated, absurdist internet content and language: short videos, memes, and slang.</p>
+
+    <div class="chatcard">
+      <div class="bar"><span></span><span></span><span></span></div>
+      <div class="bubble left">bro is actually so skibidi rn 💀</div>
+      <div class="bubble right">that's crazy, certified sigma behavior</div>
+      <div class="bubble left">no chud arc allowed today</div>
+    </div>
+    <p class="caption">what the researchers behind this commentary would call "physical peer-to-peer communication" — brainrot, off the feed and into the group chat.</p>
+
+    <h3 class="sub">Central question</h3>
+    <p>Our digital explorative project titled “Chud to Skibidi — How algorithmic diction talks through us” aims to examine the ways in which slang which first coined in the digital realm exits it and establishes itself in mostly Gen Alpha and Gen Z speech. Thus, our central research question came to be: <strong>“how and why do brainrot terms transition from algorithmic online spaces into physical peer-to-peer communication among the newer generations?”</strong></p>
+
+    <h3 class="sub">Hypothesis</h3>
+    <p>Our hypothesis is rooted in a constructivist perspective, treating brainrot as socially produced. Hence, we are exploring how younger generations actively construct brainrot language into a social tool. We treat the “decline narrative” itself as a cultural belief worth explaining. We expect the use of brainrot meme culture to represent a meaningful form of emotional communication and social participation — as micro-participation in broader social routines, and as a mediator of daily interactions separate from production or consumption.</p>
+
+    <div class="glossary">
+      <div class="term"><div class="word">skibidi</div><div class="def">tone marker, near-empty of fixed meaning</div></div>
+      <div class="term"><div class="word">sigma</div><div class="def">self-styled lone-wolf status label</div></div>
+      <div class="term"><div class="word">mogging</div><div class="def">outclassing someone, usually in looks</div></div>
+      <div class="term"><div class="word">chud</div><div class="def">pejorative for an out-of-touch figure</div></div>
+      <div class="term"><div class="word">aurafarming</div><div class="def">performing "aura" for social credit</div></div>
+      <div class="term"><div class="word">larping</div><div class="def">play-acting an identity, in real life</div></div>
+    </div>
+  </section>
+
+  <section id="summary">
+    <p class="section-label"><span class="dot"></span>02 — summary</p>
+    <h2 class="title">The chosen article</h2>
+    <p class="authorline">Balleby, L., Toft-Nielsen, C., &amp; Hougaard, T. T. (2026). <em>Digital intimacy: how everyday meme sharing shapes identity and relationships.</em> Popular Communication, 1–18.</p>
+    <p>This is a paper written by Lasse Balleby, Claus Toft-Nielsen, and Tina Thode Hougaard, researchers on communication and culture, as well comparative literature and rhetoric, from the University of Aarhus in Denmark.</p>
+    <p>The article challenges the common characterization of memes as merely “funny pictures” or “light-hearted jokes.” They think this characterisation obscures their relational and intimate dimensions. Memes form a complex interplay of routine engagement, self-reflection, and relational communication — micro-participatory acts that sustain emotional closeness, negotiate identity, and foster digital intimacy, something they call <strong>“co-presence.”</strong> They say this in dialogue with other research, such as the idea that memes are “idiomatic utterances in interpersonal media” (Domingues 2023), or embedded indexical cues that signal emotional intent (Shamayleh &amp; Arsel 2022).</p>
+
+    <blockquote>“a group of digital items sharing common characteristics of content, form and/or stance, which were created with awareness of each other, and were circulated, imitated and/or transformed via the internet by many users.” — Shifman (2013), on memes</blockquote>
+
+    <p>Denisova (2019) also points out that remix culture, and the products of web 2.0 and the democratization of content production, make memes a public good.</p>
+
+    <h3 class="sub">The study</h3>
+    <p>The researchers conducted group interviews with 14 undergraduate university students from Aarhus University in their early 20s, all doing a BA Scandinavian studies programme, in two sessions: one mixed-gender group, one all-female. The researchers highlight that the paper has a “specimen perspective” on qualitative research.</p>
+
+    <h3 class="sub">Theoretical frameworks</h3>
+    <p>The researchers discuss a departure from the “imagined audience” to the specific, physical, active meme audience — away from public posting to private messages and group chats. They refer back to media practice theory (Swidler 2001; Couldry 2004), an analytical framework focused on “what, quite simply, are people doing in relation to media across a whole range of situations and contexts?” In media practice theory, memes are embedded in broader social routines, rather than isolated acts of consumption or production — the researchers distinguish media-oriented from media-related practice.</p>
+
+    <div class="callout">Memes as <strong>micro-participation</strong>: the everyday, small-scale practices through which individuals engage with media — sharing, liking, commenting — without necessarily altering institutional power relations. These acts are meaningful in their own right because they maintain social bonds, foster identity, and support ongoing connections. Microgenetic processes tied to identity formation give fleeting, fragmented narratives a central role in “making sense of who we are.”</div>
+
+    <p>Goffman's face theory — individuals manage their social identities during interactions and strive to maintain a positive image (“face”) through “face-work” that prevents embarrassment from a face-threatening act (Goffman, 1955) — is applied to memes as facework and co-presence. Malinowski's “phatic communion,” where language sustains social bonds more than it conveys information, is also applied to memes.</p>
+    <p>Digital intimacy is more than a replication of physical closeness — memes form affective connections and technologically mediated experiences that establish closeness without physical presence, through ambient awareness, mundane updates, and mutual reflection.</p>
+
+    <h3 class="sub">Results</h3>
+    <p>Students found it difficult to define memes but showed high confidence performing within meme culture — to them, memes are <strong>“mega-relevant,”</strong> a deeply internalized practice. The researchers noted a strong generational gap in understanding meme culture. Participants were more involved in consumption and circulation than active alteration. Memes become a way of reaching out to peers, more direct than a text message.</p>
+    <p>Memes are integrated into participants' social lives — they live in media. This interpersonal resonance transforms intimate connections: through intimate digital exchanges, people explore and express facets of their personalities, which influences identity formation. Memes are both implied and esoteric, universal and flexible, but also fitted to an actual situation or feeling because of a certain vibe and timeliness — a “templatability” (Rintel, 2013).</p>
+  </section>
+
+  <section id="pov">
+    <p class="section-label"><span class="dot"></span>03 — point of view</p>
+    <h2 class="title">Our point of view</h2>
+    <p>This article was rather limited in scope, seeing as how it was limited to 14 Danish students, but it helped us expand our theoretical understanding of the social relations present in memes, and their use in daily language. In particular the concepts of micro-participation and co-presence are very helpful with our subject. What we can perhaps add to this paper is the use of memes in real-world spaces, something which the paper does not touch on.</p>
+  </section>
+
+  <section id="light">
+    <p class="section-label"><span class="dot"></span>04 — commentary</p>
+    <h2 class="title">What light it sheds on our exploration</h2>
+    <p>The use of brainrot terms and their function in daily life is hard to articulate, but the comparison to Goffman's “facework,” and the use of memes as a way of signalling “in-group,” help make our understanding of daily use more coherent. These fleeting interactions using brainrot — microgenetic interactions — are a form of phatic communion, where the form of the expressions matters more than the actual substance.</p>
+
+    <div class="chatcard">
+      <div class="bar"><span></span><span></span><span></span></div>
+      <div class="bubble left">this whole essay is so mid ngl</div>
+      <div class="bubble right">nah it's actually so aura, trust</div>
+    </div>
+    <p class="caption">phatic communion in practice: the message isn't information, it's contact.</p>
+  </section>
+
+</main>
+
+<footer>
+  Individual commentary · Digital exploration project “Chud to Skibidi — How algorithmic diction talks through us” · Source article: Balleby, Toft-Nielsen &amp; Hougaard (2026), <em>Popular Communication</em> · <a href="https://www.tandfonline.com/doi/full/10.1080/15405702.2026.2633390" target="_blank" rel="noopener">tandfonline.com/doi/10.1080/15405702.2026.2633390</a>
+</footer>
+
+</body>
+</html>
